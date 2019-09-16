@@ -1,0 +1,13 @@
+---
+title: "p8105_hw1_lk2761"
+author: "Lorraine Kwok" 
+date: 2019-09-16
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
