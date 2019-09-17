@@ -23,6 +23,13 @@ sample_df = tibble(
   vec_factor_8 = factor(c("odd", "even", "prime", "even", "prime", "even", "odd", "even"))
 )
 
+mean(pull(sample_df, sample))
+
+mean(pull(sample_df, gr_th_0)) 
+
+mean(pull(sample_df, vec_char_8))
+
+mean(pull(sample_df, vec_factor_8))
 
 ```
 
