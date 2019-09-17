@@ -24,3 +24,19 @@ sample_df = tibble(
 
 ```
 
+This code chunk is used to: 
+
+  * Convert the logical vector to a numeric vector
+  
+  * Convert the logical vector to a factor vector
+  
+  * Convert the logical vector to a factor vector and then to a numeric vector
+
+After each conversion, the random sample will be multipled by that result. 
+
+```{r converting logical vector to other variable types}
+
+as.numeric(pull(sample_df, gr_th_0))
+
+```
+
