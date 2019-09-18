@@ -106,7 +106,7 @@ The standard deviation of x is `r sd(pull(plot_df,x))`.
 This code chunk makes a scatterplot of y vs. x.
 ```{r create scatterplot}
 
-ggplot(plot_df, aes(x = x, y = y)) + geom_point()
+ggplot(plot_df, aes(x = x, y = y, color = gr_th_1)) + geom_point()
 
 ```
 
