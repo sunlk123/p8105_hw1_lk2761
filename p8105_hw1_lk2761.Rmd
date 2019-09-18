@@ -15,6 +15,8 @@ library(tidyverse)
 This code chunk is used to create a data frame that consists of four different variables.
 
 ```{r create data frame for problem 1}
+set.seed(1500)
+
 sample_df = tibble(
   sample = rnorm(8),
   gr_th_0 = sample > 0, 
@@ -73,6 +75,8 @@ This problem focuses on inline R code and plotting.
 I am creating a data frame that consists of five variables. 
 
 ```{r creating data frame}
+set.seed(1500)
+
 plot_df = tibble(
   x = rnorm(500),
   y = rnorm(500),
@@ -89,6 +93,8 @@ The mean of x is `r mean(pull(plot_df,x))`.
 The median of x is `r median(pull(plot_df,x))`.
 
 The standard deviation of x is `r sd(pull(plot_df,x))`.
+
+The proportion of cases that are x + y > 1 is 
 
 This code chunk makes a scatterplot of y vs. x. The first scatterplot consists of color points using the logical variable, **gr_th_1**, which indicates whether x + y is greater than 1. In this scatterplot, the coral represents "False" and the blue represents "True." The second scatterplot uses the numeric variable, **gr_th_1_num**, for color points. In this scatterplot, the legend shows a blue gradient but the plot itself only consists of two colors: the dark blue represents "0," which is the numeric equivalent to "False," and the light blue represents "1" which is the numeric equivalent to "True." The third scatterplot uses the factor variable, **gr_th_1_fac**, for color points. In this scatterplot, the coral represents "False" and the blue represents "True." 
 
