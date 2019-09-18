@@ -102,3 +102,11 @@ The mean of x is `r mean(pull(plot_df,x))`.
 The median of x is `r median(pull(plot_df,x))`.
 
 The standard deviation of x is `r sd(pull(plot_df,x))`.
+
+This code chunk makes a scatterplot of y vs. x.
+```{r create scatterplot}
+
+ggplot(plot_df, aes(x = x, y = y)) + geom_point()
+
+```
+
