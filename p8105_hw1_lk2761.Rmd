@@ -26,7 +26,7 @@ sample_df = tibble(
 
 ```
 
-Now we will take the mean of each variable in the data frame. 
+Now I will take the mean of each variable in the data frame. 
 
 ```{r taking mean of each variable in the data frame}
 mean(pull(sample_df, sample))
@@ -75,5 +75,23 @@ gr_th_0_factor_2 = as.factor(pull(sample_df, gr_th_0))
 gr_th_0_numeric_2 = as.numeric(gr_th_0_factor_2)
 gr_th_0_numeric_2*pull(sample_df, sample)
 
+```
+
+## Problem 2
+
+This problem focuses on inline R code and plotting. 
+
+I am creating a data frame that consists of five variables. 
+
+```{r creating data frame}
+
+plot_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  gr_th_1 = x + y > 1,
+  gr_th_1_num = as.numeric(gr_th_1),
+  gr_th_1_fac = as.factor(gr_th_1)
+  
+)
 ```
 
