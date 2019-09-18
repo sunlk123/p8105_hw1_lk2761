@@ -21,8 +21,13 @@ sample_df = tibble(
   gr_th_0 = sample > 0, 
   vec_char_8 = c("This", "generates", "a", "sample", "of", "eight", "random", "numbers"),
   vec_factor_8 = factor(c("odd", "even", "prime", "even", "prime", "even", "odd", "even"))
+  
 )
 
+```
+
+
+```{r taking mean of each variable in the data frame}
 mean(pull(sample_df, sample))
 
 mean(pull(sample_df, gr_th_0)) 
@@ -58,6 +63,12 @@ After each conversion, the random sample will be multipled by that result.
 gr_th_0_numeric = as.numeric(pull(sample_df, gr_th_0))
 gr_th_0_numeric*pull(sample_df, sample)
 
+gr_th_0_factor = as.factor(pull(sample_df, gr_th_0))
+gr_th_0_factor*pull(sample_df, sample)
+
+gr_th_0_factor_2 = as.factor(pull(sample_df, gr_th_0))
+gr_th_0_numeric_2 = as.numeric(gr_th_0_factor_2)
+gr_th_0_numeric_2*pull(sample_df, sample)
 
 ```
 
