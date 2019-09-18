@@ -12,7 +12,7 @@ library(tidyverse)
 
 ## Problem 1
 
-This code chunk is used to create a data frame that generates a sample from a normal distribution. 
+This code chunk is used to create a data frame that consists of four different variables.
 
 ```{r create data frame for problem 1}
 
@@ -26,6 +26,7 @@ sample_df = tibble(
 
 ```
 
+Now we will take the mean of each variable in the data frame. 
 
 ```{r taking mean of each variable in the data frame}
 mean(pull(sample_df, sample))
@@ -38,7 +39,7 @@ mean(pull(sample_df, vec_factor_8))
 
 ```
 
-This code chunk uses *as.numeric* to convert the logical, character and factor variables from the sample_df data frame to numeric variables. 
+This code chunk uses **as.numeric** to convert the logical, character and factor variables from the sample_df data frame to numeric variables. 
 
 ```{r applying the as.numeric function to the logical, character and factor variables}
 
