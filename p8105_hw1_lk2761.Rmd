@@ -103,7 +103,7 @@ The median of x is `r median(pull(plot_df,x))`.
 
 The standard deviation of x is `r sd(pull(plot_df,x))`.
 
-This code chunk makes a scatterplot of y vs. x.
+This code chunk makes a scatterplot of y vs. x. The first scatterplot consists of color points using the logical variable, **gr_th_1**, which indicates whether x + y is greater than 1. In this scatterplot, the coral represents "False" and the blue represents "True." The second scatterplot uses the numeric variable, **gr_th_1_num**, for color points. In this scatterplot, the legend shows a blue gradient but the plot itself only consists of two colors: the dark blue represents "0," which is the numeric equivalent to "False," and the light blue represents "1" which is the numeric equivalent to "True." The third scatterplot uses the factor variable, **gr_th_1_fac**, for color points. In this scatterplot, the coral represents "False" and the blue represents "True." 
 
 ```{r create scatterplot}
 
