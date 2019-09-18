@@ -108,6 +108,9 @@ This code chunk makes a scatterplot of y vs. x.
 ```{r create scatterplot}
 
 ggplot(plot_df, aes(x = x, y = y, color = gr_th_1)) + geom_point()
+
+ggsave("hw1_scatterplot_lk2761.pdf", plot = last_plot())
+
 ggplot(plot_df, aes(x = x, y = y, color = gr_th_1_num)) + geom_point()
 ggplot(plot_df, aes(x = x, y = y, color = gr_th_1_fac)) + geom_point()
 
