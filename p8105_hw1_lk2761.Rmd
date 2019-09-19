@@ -1,12 +1,16 @@
 ---
 title: "p8105_hw1_lk2761"
+
 author: "Lorraine Kwok" 
+
 date: 2019-09-16
+
 output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 library(tidyverse)
 ```
 
@@ -14,7 +18,7 @@ library(tidyverse)
 
 This code chunk is used to create a data frame that consists of four different variables.
 
-```{r create data frame for problem 1}
+```{r create sample_df}
 set.seed(1500)
 
 sample_df = tibble(
@@ -25,9 +29,12 @@ sample_df = tibble(
 )
 ```
 
+### Calculating the mean of each variable in the dataframe
+
 Now I will take the mean of each variable in the data frame. 
 
-```{r taking mean of each variable in the data frame}
+```{r take mean}
+## taking the mean of the variables in sample_df 
 mean(pull(sample_df, sample))
 mean(pull(sample_df, gr_th_0_log)) 
 mean(pull(sample_df, vec_char_8))
@@ -36,15 +43,20 @@ mean(pull(sample_df, vec_factor_8))
 
 The mean can be calculated for the random sample and logical variables. It cannot be calculated for the character or factor variables since the values for these two variables are not numeric. 
 
+### Applying "as.numeric" function
+
 The following code chunk uses **as.numeric** to convert the logical, character and factor variables from the sample_df data frame to numeric variables.The code chunk is shown but the output is not.  
 
-```{r results = "hide"}
+```{r apply as.numeric}
+## apply as.numeric function to variables
 as.numeric(pull(sample_df, gr_th_0_log))
 as.numeric(pull(sample_df, vec_char_8))
 as.numeric(pull(sample_df, vec_factor_8))
 ```
 
 When the **as.numeric** function is applied to the logical variable, **gr_th_0_log**, the "true/false" dichotomy is converted to "0/1." This explains why it was possible for the mean to be calculated for **gr_th_0_log**. When the function is applied to the character vector,**vec_char_8**, a warning message appears and reports that NAs were introduced by coercion. I think this occurred because the character vector consists of text that is different for each "level." This explains why the mean of **vec_char_8** could not be calculated - the values within this vector are not numeric. When the **as.numeric** function is applied to the factor level,**vec_factor_8**, the three different factor "levels" are converted into numbers. However, this does not explain why the mean for **vec_factor_8** could not be calculated. 
+
+### Converting the logical vector into different variable types
 
 The following code chunk is used to: 
 
@@ -56,15 +68,22 @@ The following code chunk is used to:
 
 After each conversion, the random sample will be multipled by that result. 
 
-```{r converting logical vector to other variable types}
+```{r logical vector conversions}
+## convert logical vector to numeric vector
 gr_th_0_numeric = as.numeric(pull(sample_df, gr_th_0_log))
+## multiply resulting numeric vector by sample
 gr_th_0_numeric*pull(sample_df, sample)
 
+## convert logical vector to factor vector
 gr_th_0_factor = as.factor(pull(sample_df, gr_th_0_log))
+## multiply resulting factor vector by sample
 gr_th_0_factor*pull(sample_df, sample)
 
+## convert logical vector to factor vector
 gr_th_0_factor_2 = as.factor(pull(sample_df, gr_th_0_log))
+## convert resulting factor vector into numeric vector
 gr_th_0_numeric_2 = as.numeric(gr_th_0_factor_2)
+## multiply resulting vector by 
 gr_th_0_numeric_2*pull(sample_df, sample)
 ```
 
@@ -72,9 +91,11 @@ gr_th_0_numeric_2*pull(sample_df, sample)
 
 This problem focuses on inline R code and plotting. 
 
+### Creating the data frame
+
 I am creating a data frame that consists of five variables. 
 
-```{r creating data frame}
+```{r create plot_df}
 set.seed(1500)
 
 plot_df = tibble(
@@ -94,11 +115,14 @@ The median of x is `r median(pull(plot_df,x))`.
 
 The standard deviation of x is `r sd(pull(plot_df,x))`.
 
-The proportion of cases that are x + y > 1 is `r sum(pull(plot_df, gr_th_1_log), na.rm = TRUE)`.
+The proportion of cases that are x + y > 1 is `r sum(pull(plot_df, gr_th_1_log), na.rm = TRUE)/500`.
+
+### Creating scatterplots 
 
 This code chunk makes a scatterplot of y vs. x. The first scatterplot consists of color points using the logical variable, **gr_th_1_log**, which indicates whether x + y is greater than 1. In this scatterplot, the coral represents "False" and the blue represents "True." The second scatterplot uses the numeric variable, **gr_th_1_num**, for color points. In this scatterplot, the legend shows a blue gradient but the plot itself only consists of two colors: the dark blue represents "0," which is the numeric equivalent to "False," and the light blue represents "1" which is the numeric equivalent to "True." The third scatterplot uses the factor variable, **gr_th_1_fac**, for color points. In this scatterplot, the coral represents "False" and the blue represents "True." 
 
 ```{r create scatterplot}
+## create and save scatterplot
 ggplot(plot_df, aes(x = x, y = y, color = gr_th_1_log)) + geom_point()
 ggsave("hw1_scatterplot_lk2761.pdf", plot = last_plot())
 
