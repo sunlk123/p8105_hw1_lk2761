@@ -34,7 +34,7 @@ mean(pull(sample_df, vec_char_8))
 mean(pull(sample_df, vec_factor_8))
 ```
 
-The mean can be calculated for the random sample and logical variables. It cannot be calculated for the character or factor variables. 
+The mean can be calculated for the random sample and logical variables. It cannot be calculated for the character or factor variables since the values for these two variables are not numeric. 
 
 The following code chunk uses **as.numeric** to convert the logical, character and factor variables from the sample_df data frame to numeric variables.The code chunk is shown but the output is not.  
 
@@ -86,7 +86,7 @@ plot_df = tibble(
 )
 ```
 
-The size of the dataset is `r nrow(plot_df)` by `r ncol(plot_df)`.
+The size of the dataset is `r nrow(plot_df)` rows by `r ncol(plot_df)`columns.
 
 The mean of x is `r mean(pull(plot_df,x))`.
 
