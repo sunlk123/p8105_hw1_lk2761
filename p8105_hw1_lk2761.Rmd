@@ -16,6 +16,8 @@ library(tidyverse)
 
 ## Problem 1
 
+This problem focuses on different variable types and R treats them. 
+
 ### Creating a data frame
 
 This code chunk is used to create a data frame that consists of four different variables.
